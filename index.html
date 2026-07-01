@@ -5,21 +5,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Hexwerks Studios | Dark Tabletop Games & Miniatures</title>
-
-  <meta name="description" content="Hexwerks Studios creates dark tabletop games, miniatures, and mythic skirmish worlds including Black Oaths and EINVÍGI." />
+  <meta name="description" content="Hexwerks Studios creates dark tabletop games, miniatures, rulebooks, and mythic skirmish worlds including Black Oaths, Oaths & Banners, and EINVÍGI." />
+  <meta property="og:title" content="Hexwerks Studios | Dark Tabletop Games & Miniatures" />
+  <meta property="og:description" content="Dark tabletop games, miniatures, rulebooks, and saga-driven skirmish worlds." />
+  <meta property="og:image" content="IMG_2696.jpeg" />
+  <meta property="og:type" content="website" />
 
   <style>
     :root {
-      --bg: #070707;
-      --panel: rgba(17, 17, 17, 0.94);
-      --panel-2: rgba(23, 23, 23, 0.94);
-      --text: #f4f0e8;
-      --muted: #b8afa3;
-      --line: #2b2b2b;
-      --accent: #b89b5e;
-      --blood: #6f1111;
-      --hex-line: rgba(255, 255, 255, 0.075);
-      --hex-soft: rgba(255, 255, 255, 0.025);
+      --bg: #050505;
+      --ink: #f6f1e8;
+      --muted: #c0b6a8;
+      --soft: #8f8678;
+      --line: rgba(246, 241, 232, 0.16);
+      --panel: rgba(13, 13, 13, 0.88);
+      --panel-solid: #111111;
+      --accent: #c5a469;
+      --accent-2: #76999b;
+      --blood: #8b1717;
+      --shadow: rgba(0, 0, 0, 0.55);
     }
 
     * {
@@ -33,50 +37,14 @@
     body {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      color: var(--text);
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(5, 5, 5, 0.82), rgba(5, 5, 5, 0.94)),
+        linear-gradient(30deg, rgba(255, 255, 255, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.05) 87.5%),
+        linear-gradient(150deg, rgba(255, 255, 255, 0.04) 12%, transparent 12.5%, transparent 87%, rgba(255, 255, 255, 0.04) 87.5%),
+        var(--bg);
+      background-size: cover, 94px 164px, 94px 164px, cover;
       line-height: 1.6;
-      background-color: var(--bg);
-      background-image:
-        radial-gradient(circle at top, rgba(184, 155, 94, 0.10), transparent 35%),
-        radial-gradient(circle at bottom, rgba(111, 17, 17, 0.12), transparent 45%),
-        linear-gradient(rgba(7, 7, 7, 0.72), rgba(7, 7, 7, 0.90)),
-        linear-gradient(30deg, var(--hex-line) 12%, transparent 12.5%, transparent 87%, var(--hex-line) 87.5%, var(--hex-line)),
-        linear-gradient(150deg, var(--hex-line) 12%, transparent 12.5%, transparent 87%, var(--hex-line) 87.5%, var(--hex-line)),
-        linear-gradient(30deg, var(--hex-line) 12%, transparent 12.5%, transparent 87%, var(--hex-line) 87.5%, var(--hex-line)),
-        linear-gradient(150deg, var(--hex-line) 12%, transparent 12.5%, transparent 87%, var(--hex-line) 87.5%, var(--hex-line)),
-        linear-gradient(60deg, var(--hex-soft) 25%, transparent 25.5%, transparent 75%, var(--hex-soft) 75%, var(--hex-soft)),
-        linear-gradient(60deg, var(--hex-soft) 25%, transparent 25.5%, transparent 75%, var(--hex-soft) 75%, var(--hex-soft));
-      background-size:
-        cover,
-        cover,
-        cover,
-        96px 168px,
-        96px 168px,
-        96px 168px,
-        96px 168px,
-        96px 168px,
-        96px 168px;
-      background-position:
-        center,
-        center,
-        center,
-        0 0,
-        0 0,
-        48px 84px,
-        48px 84px,
-        0 0,
-        48px 84px;
-      background-repeat:
-        no-repeat,
-        no-repeat,
-        no-repeat,
-        repeat,
-        repeat,
-        repeat,
-        repeat,
-        repeat,
-        repeat;
-      background-attachment: fixed;
     }
 
     a {
@@ -84,345 +52,536 @@
     }
 
     img {
-      max-width: 100%;
       display: block;
+      max-width: 100%;
     }
 
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 10;
-      background: rgba(7, 7, 7, 0.94);
+      z-index: 20;
       border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(8px);
+      background: rgba(4, 4, 4, 0.92);
+      backdrop-filter: blur(12px);
     }
 
     .nav {
-      max-width: 1150px;
+      width: min(1180px, calc(100% - 36px));
       margin: 0 auto;
-      padding: 12px 20px;
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      gap: 20px;
     }
 
     .brand-wrap {
       display: flex;
       align-items: center;
       gap: 12px;
+      min-width: 0;
+      text-decoration: none;
     }
 
     .nav-logo {
-      width: 46px;
-      height: 46px;
+      width: 44px;
+      height: 44px;
       object-fit: cover;
       border: 1px solid var(--line);
       background: #000;
     }
 
     .brand {
-      font-weight: bold;
+      font-size: 15px;
+      font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
-      font-size: 15px;
+      white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
-      flex-wrap: wrap;
+      align-items: center;
       justify-content: flex-end;
-      gap: 14px;
-      font-size: 13px;
+      gap: 18px;
+      font-size: 12px;
+      letter-spacing: 1.4px;
       text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
     .nav-links a {
-      text-decoration: none;
       color: var(--muted);
+      text-decoration: none;
     }
 
-    .nav-links a:hover {
-      color: var(--text);
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--ink);
     }
 
     .hero {
-      min-height: 82vh;
+      min-height: calc(88vh - 72px);
       display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 90px 22px;
+      align-items: end;
       border-bottom: 1px solid var(--line);
       background:
-        radial-gradient(circle at top, rgba(184, 155, 94, 0.14), transparent 36%),
-        radial-gradient(circle at bottom, rgba(111, 17, 17, 0.18), transparent 45%),
-        linear-gradient(rgba(6, 6, 6, 0.22), rgba(7, 7, 7, 0.66));
+        linear-gradient(90deg, rgba(5, 5, 5, 0.92) 0%, rgba(5, 5, 5, 0.72) 44%, rgba(5, 5, 5, 0.22) 100%),
+        linear-gradient(0deg, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.34) 34%, rgba(5, 5, 5, 0.56) 100%),
+        url("IMG_2696.jpeg");
+      background-position: center top;
+      background-size: cover;
     }
 
     .hero-inner {
-      max-width: 920px;
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: clamp(48px, 7vw, 92px) 0 46px;
     }
 
-    .hero-mark {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      margin: 0 auto 28px;
-      border: 1px solid var(--line);
-      box-shadow: 0 0 40px rgba(184, 155, 94, 0.16);
+    .hero-copy {
+      max-width: 760px;
     }
 
-    .eyebrow {
+    .eyebrow,
+    .tag,
+    .kicker {
       color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 3px;
       text-transform: uppercase;
-      letter-spacing: 4px;
-      font-size: 13px;
-      margin-bottom: 20px;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
     }
 
     h1 {
-      margin: 0;
-      font-size: clamp(52px, 12vw, 110px);
-      line-height: 0.95;
-      letter-spacing: 1px;
+      max-width: 780px;
+      margin-bottom: 24px;
+      font-size: clamp(52px, 9vw, 104px);
+      line-height: 0.9;
+      letter-spacing: 0;
     }
 
-    .hero p {
-      max-width: 760px;
-      margin: 28px auto 0;
-      font-size: clamp(20px, 4vw, 30px);
+    .hero-text {
+      max-width: 650px;
+      margin-bottom: 0;
       color: var(--muted);
+      font-size: clamp(20px, 3.2vw, 29px);
+      line-height: 1.38;
     }
 
-    .buttons {
-      margin-top: 34px;
+    .hero-actions,
+    .section-actions {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
+      margin-top: 32px;
     }
 
     .button {
-      display: inline-block;
-      padding: 14px 22px;
-      border: 1px solid var(--text);
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: rgba(0, 0, 0, 0.48);
       text-decoration: none;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 14px;
-      background: rgba(0, 0, 0, 0.40);
+      letter-spacing: 1.2px;
+      font-size: 12px;
+      font-weight: 700;
+      transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
     }
 
     .button.primary {
-      background: var(--text);
-      color: #090909;
-    }
-
-    .button:hover {
       border-color: var(--accent);
-      color: var(--accent);
+      color: #090909;
+      background: var(--accent);
     }
 
-    .button.primary:hover {
-      background: var(--accent);
+    .button:hover,
+    .button:focus-visible {
+      border-color: var(--ink);
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .button.primary:hover,
+    .button.primary:focus-visible {
       color: #090909;
+      background: #e1c17e;
+    }
+
+    .status-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+      transform: translateY(1px);
+      border: 1px solid var(--line);
+      background: rgba(8, 8, 8, 0.94);
+      box-shadow: 0 18px 60px var(--shadow);
+    }
+
+    .status-item {
+      min-height: 116px;
+      padding: 22px;
+      border-right: 1px solid var(--line);
+    }
+
+    .status-item:last-child {
+      border-right: 0;
+    }
+
+    .status-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--ink);
+      font-size: 19px;
+    }
+
+    .status-item span {
+      color: var(--muted);
+      font-size: 15px;
     }
 
     section {
-      padding: 70px 22px;
       border-bottom: 1px solid var(--line);
-      background: rgba(7, 7, 7, 0.58);
+      padding: clamp(64px, 8vw, 104px) 0;
+      background: rgba(5, 5, 5, 0.68);
     }
 
     .wrap {
-      max-width: 1150px;
+      width: min(1180px, calc(100% - 36px));
       margin: 0 auto;
     }
 
-    h2 {
-      margin: 0 0 20px;
-      font-size: clamp(36px, 8vw, 64px);
-      line-height: 1;
-    }
-
-    h3 {
-      margin: 0 0 12px;
-      font-size: 28px;
-    }
-
-    .lead {
-      max-width: 850px;
-      color: var(--muted);
-      font-size: 21px;
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+      gap: 32px;
+      align-items: end;
       margin-bottom: 34px;
     }
 
-    .feature {
-      background:
-        linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.88)),
-        radial-gradient(circle at center, rgba(111, 17, 17, 0.35), transparent 60%);
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(38px, 7vw, 72px);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin-bottom: 12px;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.05;
+    }
+
+    .lead {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2.2vw, 23px);
+      line-height: 1.5;
     }
 
     .feature-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 28px;
-      align-items: center;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 36px;
+      align-items: stretch;
     }
 
-    .feature-image {
+    .feature-media {
+      min-height: 520px;
       border: 1px solid var(--line);
-      background: #000;
-      box-shadow: 0 0 50px rgba(0, 0, 0, 0.65);
+      background:
+        linear-gradient(0deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.18)),
+        url("IMG_2696.jpeg");
+      background-position: center top;
+      background-size: cover;
+      box-shadow: 0 24px 70px var(--shadow);
     }
 
     .feature-copy {
-      padding: 10px 0;
+      display: grid;
+      align-content: center;
+      padding: 8px 0;
     }
 
     .feature-copy p {
       color: var(--muted);
-      font-size: 19px;
+      font-size: 18px;
     }
 
-    .grid {
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0 2px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 32px;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .cards {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
 
     .card {
-      background: linear-gradient(180deg, var(--panel-2), var(--panel));
-      border: 1px solid var(--line);
+      min-height: 310px;
+      display: grid;
+      align-content: space-between;
+      gap: 22px;
       padding: 28px;
-      min-height: 260px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+        var(--panel-solid);
+      box-shadow: 0 20px 54px var(--shadow);
     }
 
-    .card p {
+    .card p,
+    .panel p {
       color: var(--muted);
-      margin-bottom: 0;
       font-size: 17px;
     }
 
-    .tag {
-      display: inline-block;
-      margin-bottom: 18px;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 2px;
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+
+    .meta {
+      color: var(--soft);
       font-size: 12px;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
     }
 
-    .gallery {
+    .lore-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-      margin-top: 30px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
     }
 
-    .gallery-card {
+    .panel {
+      min-height: 240px;
+      padding: 24px;
       border: 1px solid var(--line);
       background: var(--panel);
-      overflow: hidden;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
     }
 
-    .gallery-card img {
-      width: 100%;
-      height: auto;
-      background: #000;
-    }
-
-    .gallery-card div {
-      padding: 20px;
-    }
-
-    .gallery-card p {
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .banner {
+    .downloads {
       background:
-        linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.88)),
-        radial-gradient(circle at center, rgba(127, 29, 29, 0.35), transparent 55%);
-      text-align: center;
+        linear-gradient(rgba(5, 5, 5, 0.78), rgba(5, 5, 5, 0.92)),
+        radial-gradient(circle at top left, rgba(118, 153, 155, 0.18), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(139, 23, 23, 0.18), transparent 38%),
+        #080808;
     }
 
-    .banner .lead {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .list {
+    .download-list {
       display: grid;
-      gap: 14px;
-      margin-top: 24px;
+      gap: 12px;
     }
 
-    .list-item {
-      border: 1px solid var(--line);
-      background: var(--panel);
+    .download-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: center;
+      min-height: 82px;
       padding: 18px 20px;
+      border: 1px solid var(--line);
+      background: rgba(0, 0, 0, 0.36);
+    }
+
+    .download-item strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 18px;
+    }
+
+    .download-item span {
+      color: var(--muted);
+    }
+
+    .badge {
+      padding: 6px 10px;
+      border: 1px solid rgba(197, 164, 105, 0.45);
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .cta {
+      text-align: center;
+      background:
+        linear-gradient(rgba(5, 5, 5, 0.78), rgba(5, 5, 5, 0.92)),
+        url("IMG_2696.jpeg");
+      background-position: center center;
+      background-size: cover;
+    }
+
+    .cta .wrap {
+      max-width: 850px;
+    }
+
+    .cta .section-actions {
+      justify-content: center;
+    }
+
+    footer {
+      padding: 36px 0;
+      color: var(--muted);
+      background: #050505;
+    }
+
+    .footer-inner {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       gap: 20px;
       align-items: center;
-      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24);
     }
 
-    .list-item span {
-      color: var(--muted);
-    }
-
-    footer {
-      padding: 42px 22px;
-      text-align: center;
-      color: var(--muted);
-      background: rgba(5, 5, 5, 0.92);
-      border-top: 1px solid var(--line);
-    }
-
-    footer strong {
-      color: var(--text);
+    .footer-brand {
+      color: var(--ink);
+      font-weight: 700;
       letter-spacing: 2px;
       text-transform: uppercase;
     }
 
-    @media (max-width: 780px) {
-      body {
-        background-attachment: scroll;
-      }
+    .footer-links {
+      display: flex;
+      gap: 14px;
+      font-size: 13px;
+    }
 
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus-visible {
+      color: var(--ink);
+    }
+
+    @media (max-width: 860px) {
       .nav {
+        min-height: auto;
+        padding: 14px 0;
         align-items: flex-start;
         flex-direction: column;
       }
 
-      .nav-links {
-        justify-content: flex-start;
-        gap: 10px;
+      .brand {
+        white-space: normal;
       }
 
-      .feature-grid,
-      .grid,
-      .gallery {
-        grid-template-columns: 1fr;
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 10px 14px;
+        flex-wrap: wrap;
       }
 
       .hero {
-        min-height: 76vh;
+        min-height: auto;
+        background:
+          linear-gradient(180deg, rgba(5, 5, 5, 0.54) 0%, rgba(5, 5, 5, 0.88) 58%, rgba(5, 5, 5, 0.98) 100%),
+          url("IMG_2696.jpeg");
+        background-position: center top;
+        background-size: cover;
       }
 
-      .list-item {
-        display: block;
+      .hero-inner {
+        padding-top: 240px;
       }
 
-      .list-item span {
-        display: block;
-        margin-top: 6px;
+      .status-strip,
+      .section-head,
+      .feature-grid,
+      .cards,
+      .lore-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .status-item {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .status-item:last-child {
+        border-bottom: 0;
+      }
+
+      .feature-media {
+        min-height: 620px;
+      }
+
+      .download-item {
+        grid-template-columns: 1fr;
+      }
+
+      .badge {
+        width: fit-content;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .hero-inner {
+        width: min(100% - 28px, 1180px);
+        padding-top: 90px;
+      }
+
+      .wrap,
+      .nav,
+      .status-strip,
+      .footer-inner {
+        width: min(100% - 28px, 1180px);
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .feature-media {
+        min-height: 460px;
+      }
+
+      .card,
+      .panel {
+        padding: 22px;
       }
     }
   </style>
@@ -430,14 +589,16 @@
 
 <body>
   <div class="topbar">
-    <nav class="nav">
-      <div class="brand-wrap">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand-wrap" href="#top" aria-label="Hexwerks Studios home">
         <img class="nav-logo" src="IMG_2698.jpeg" alt="Hexwerks Studios logo">
-        <div class="brand">Hexwerks Studios</div>
-      </div>
+        <span class="brand">Hexwerks Studios</span>
+      </a>
 
       <div class="nav-links">
+        <a href="#black-oaths">Black Oaths</a>
         <a href="#games">Games</a>
+        <a href="#oaths-banners">Oaths & Banners</a>
         <a href="#miniatures">Miniatures</a>
         <a href="#downloads">Downloads</a>
         <a href="#playtest">Playtest</a>
@@ -445,168 +606,275 @@
     </nav>
   </div>
 
-  <header class="hero">
+  <header class="hero" id="top">
     <div class="hero-inner">
-      <img class="hero-mark" src="IMG_2698.jpeg" alt="Hexwerks Studios logo">
+      <div class="hero-copy">
+        <div class="eyebrow">Dark tabletop games · miniatures · mythic skirmish worlds</div>
+        <h1>Hexwerks Studios</h1>
+        <p class="hero-text">
+          We build brutal, story-driven tabletop games and miniatures for players
+          who want every battle to feel like a saga at the edge of doom.
+        </p>
 
-      <div class="eyebrow">Tabletop Games · Miniatures · Dark Myth</div>
-
-      <h1>Hexwerks<br>Studios</h1>
-
-      <p>
-        Dark tabletop games, brutal skirmish worlds, and miniatures shaped by
-        old sagas, broken faith, blood oaths, and doomed heroes.
-      </p>
-
-      <div class="buttons">
-        <a class="button primary" href="#games">Explore the Games</a>
-        <a class="button" href="#playtest">Join the Playtest</a>
+        <div class="hero-actions">
+          <a class="button primary" href="#black-oaths">Enter Black Oaths</a>
+          <a class="button" href="#playtest">Join the Playtest</a>
+        </div>
       </div>
     </div>
   </header>
 
-  <section class="feature">
-    <div class="wrap">
-      <div class="feature-grid">
-        <img class="feature-image" src="IMG_2696.jpeg" alt="Black Oaths miniature feature image">
-
-        <div class="feature-copy">
-          <span class="tag">Featured World</span>
-          <h2>Black Oaths</h2>
-          <p>
-            A grimdark Viking skirmish game of blood, faith, prophecy, and
-            brutal close combat. Every model is a warrior with a story. Every
-            fight is a step deeper into doom.
-          </p>
-          <p>
-            Black Oaths is built for players who want skirmish battles that feel
-            like sagas: violent, personal, and haunted by the old gods.
-          </p>
-
-          <div class="buttons">
-            <a class="button primary" href="#playtest">Follow Development</a>
-            <a class="button" href="#downloads">View Downloads</a>
-          </div>
-        </div>
-      </div>
+  <aside class="status-strip" aria-label="Studio status">
+    <div class="status-item">
+      <strong>Black Oaths</strong>
+      <span>Grimdark Viking skirmish game in active development.</span>
     </div>
-  </section>
-
-  <section id="games">
-    <div class="wrap">
-      <h2>Games</h2>
-      <p class="lead">
-        Hexwerks Studios builds character-driven tabletop games where every
-        fight should feel like a story worth retelling.
-      </p>
-
-      <div class="grid">
-        <article class="card">
-          <span class="tag">Flagship Skirmish Game</span>
-          <h3>Black Oaths</h3>
-          <p>
-            Black Oaths is a grimdark Viking skirmish game of blood, faith,
-            prophecy, and brutal close combat. Warriors do not fight for victory
-            points alone. They fight for oaths, glory, doom, and the favor of
-            powers older than kings.
-          </p>
-        </article>
-
-        <article class="card">
-          <span class="tag">Norse Duel Game</span>
-          <h3>EINVÍGI</h3>
-          <p>
-            EINVÍGI is a tense Norse dueling game built around movement,
-            commitment, attack, defense, and violent follow-through. Every step
-            matters. Every decision can become the moment your saga ends.
-          </p>
-        </article>
-      </div>
+    <div class="status-item">
+      <strong>Oaths & Banners</strong>
+      <span>Dark Age shieldwalls, banners, and gritty warband warfare.</span>
     </div>
-  </section>
+    <div class="status-item">
+      <strong>EINVÍGI</strong>
+      <span>Norse duel rules built for tense, decisive fights.</span>
+    </div>
+    <div class="status-item">
+      <strong>Playtest Files</strong>
+      <span>Rulebooks, reference sheets, and updates will land here.</span>
+    </div>
+  </aside>
 
-  <section id="miniatures">
-    <div class="wrap">
-      <h2>Miniatures & Lore</h2>
-      <p class="lead">
-        From frost-haunted nightmares to hanged witnesses, relic bearers,
-        Ulfhednar, Frankish zealots, and oath-bound killers, Hexwerks miniatures
-        are built to feel like figures pulled from a saga that went wrong.
-      </p>
+  <main>
+    <section id="black-oaths">
+      <div class="wrap">
+        <div class="feature-grid">
+          <div class="feature-media" role="img" aria-label="Black Oaths miniature and logo"></div>
 
-      <div class="gallery">
-        <article class="gallery-card">
-          <img src="IMG_2696.jpeg" alt="Black Oaths miniature">
-          <div>
-            <h3>The Black Oaths World</h3>
+          <div class="feature-copy">
+            <span class="tag">Featured World</span>
+            <h2>Black Oaths</h2>
             <p>
-              Sacred violence, broken oaths, old gods, and warriors standing at
-              the edge of the Christian world.
+              Black Oaths is a grimdark Viking skirmish game of blood, faith,
+              prophecy, and brutal close combat. Warriors do not fight for
+              victory points alone. They fight for oaths, glory, doom, and the
+              favor of powers older than kings.
             </p>
-          </div>
-        </article>
-
-        <article class="gallery-card">
-          <img src="IMG_2698.jpeg" alt="Hexwerks Studios logo">
-          <div>
-            <h3>Hexwerks Studios</h3>
             <p>
-              Dark tabletop worlds, miniature games, rulebooks, and visual lore
-              for narrative skirmish players.
+              The game is being shaped for narrative skirmish players, painters,
+              campaign builders, and anyone who wants a small warband to carry
+              the weight of a legend.
             </p>
+
+            <div class="pill-row" aria-label="Black Oaths themes">
+              <span class="pill">Warband skirmish</span>
+              <span class="pill">Saga campaigns</span>
+              <span class="pill">Dark age myth</span>
+              <span class="pill">Miniature focused</span>
+            </div>
+
+            <div class="section-actions">
+              <a class="button primary" href="#playtest">Follow Development</a>
+              <a class="button" href="#downloads">Check Downloads</a>
+            </div>
           </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <section id="downloads">
-    <div class="wrap">
-      <h2>Downloads</h2>
-      <p class="lead">
-        Rulebooks, playtest packets, reference sheets, and development files
-        will be collected here as each project grows.
-      </p>
-
-      <div class="list">
-        <div class="list-item">
-          <strong>Black Oaths Playtest Packet</strong>
-          <span>Coming soon</span>
-        </div>
-
-        <div class="list-item">
-          <strong>EINVÍGI Rulebook</strong>
-          <span>Coming soon</span>
-        </div>
-
-        <div class="list-item">
-          <strong>Quick Reference Sheets</strong>
-          <span>Coming soon</span>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="banner" id="playtest">
-    <div class="wrap">
-      <h2>Join the Playtest</h2>
-      <p class="lead">
-        Black Oaths and EINVÍGI are currently in development. Playtesters,
-        painters, miniature wargamers, and narrative skirmish players are
-        welcome.
-      </p>
+    <section id="games">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="kicker">Tabletop Systems</span>
+            <h2>Games in the Forge</h2>
+          </div>
+          <p class="lead">
+            Hexwerks games are built around pressure, commitment, violent
+            choices, and the kind of tabletop moments players retell afterward.
+          </p>
+        </div>
 
-      <div class="buttons">
-        <a class="button primary" href="https://www.hexwerksstudios.com">Visit HexwerksStudios.com</a>
-        <a class="button" href="#downloads">View Downloads</a>
+        <div class="cards">
+          <article class="card">
+            <div>
+              <span class="tag">Flagship Skirmish Game</span>
+              <h3>Black Oaths</h3>
+              <p>
+                Lead oath-bound warriors through brutal fights, cursed ground,
+                and myth-haunted campaigns. Every model matters, and every
+                choice should leave a mark.
+              </p>
+            </div>
+            <div class="card-meta">
+              <span class="meta">In development</span>
+              <span class="meta">Miniature agnostic</span>
+              <span class="meta">Narrative skirmish</span>
+            </div>
+          </article>
+
+          <article class="card" id="oaths-banners">
+            <div>
+              <span class="tag">Dark Age Warband Game</span>
+              <h3>Oaths & Banners</h3>
+              <p>
+                A grounded game of shieldwalls and steel, built around rough
+                early medieval fighting, shifting battlelines, strong faction
+                identity, and hard choices that decide the fight.
+              </p>
+            </div>
+            <div class="card-meta">
+              <span class="meta">Core rules planned</span>
+              <span class="meta">Warband building</span>
+              <span class="meta">Gritty warfare</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <div>
+              <span class="tag">Norse Duel Game</span>
+              <h3>EINVÍGI</h3>
+              <p>
+                A compact duel game built around movement, commitment, attack,
+                defense, and violent follow-through. Every step matters. Every
+                decision can become the moment your saga ends.
+              </p>
+            </div>
+            <div class="card-meta">
+              <span class="meta">Rules in progress</span>
+              <span class="meta">Fast table setup</span>
+              <span class="meta">High tension</span>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section id="miniatures">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="kicker">Miniatures & Lore</span>
+            <h2>Figures With Doom in Their Bones</h2>
+          </div>
+          <p class="lead">
+            The visual language of Hexwerks is cold iron, sacred violence,
+            broken vows, relics, ravens, and warriors caught between old gods
+            and a changing world.
+          </p>
+        </div>
+
+        <div class="lore-grid">
+          <article class="panel">
+            <span class="tag">Warbands</span>
+            <h3>Small Forces, Big Stories</h3>
+            <p>
+              Small groups of named fighters make every casualty, oath, wound,
+              and victory feel personal.
+            </p>
+          </article>
+
+          <article class="panel">
+            <span class="tag">Worldbuilding</span>
+            <h3>Mythic Dark Age</h3>
+            <p>
+              Black Oaths sits at the border of saga, history, nightmare, and
+              faith, where rumor can be as dangerous as steel.
+            </p>
+          </article>
+
+          <article class="panel">
+            <span class="tag">Hobby Table</span>
+            <h3>Painted for Impact</h3>
+            <p>
+              Miniatures, icons, and art direction are designed to feel strong
+              in play, in photos, and on the shelf.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="downloads" id="downloads">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <span class="kicker">Downloads</span>
+            <h2>Files Coming Online</h2>
+          </div>
+          <p class="lead">
+            This page will become the public shelf for playtest packets,
+            quick-reference sheets, rulebooks, and designer notes as each
+            project moves toward release.
+          </p>
+        </div>
+
+        <div class="download-list">
+          <div class="download-item">
+            <div>
+              <strong>Black Oaths Playtest Packet</strong>
+              <span>Core rules, scenarios, and warband tools.</span>
+            </div>
+            <span class="badge">Coming soon</span>
+          </div>
+
+          <div class="download-item">
+            <div>
+              <strong>Oaths & Banners Core Rules</strong>
+              <span>Shieldwall rules, warband tools, and faction support.</span>
+            </div>
+            <span class="badge">Coming soon</span>
+          </div>
+
+          <div class="download-item">
+            <div>
+              <strong>EINVÍGI Rulebook</strong>
+              <span>Norse duel rules for focused one-on-one play.</span>
+            </div>
+            <span class="badge">Coming soon</span>
+          </div>
+
+          <div class="download-item">
+            <div>
+              <strong>Quick Reference Sheets</strong>
+              <span>Printable table aids for early playtesters.</span>
+            </div>
+            <span class="badge">Coming soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="playtest">
+      <div class="wrap">
+        <span class="kicker">Playtest & Updates</span>
+        <h2>Help Shape the Next Version</h2>
+        <p class="lead">
+          Black Oaths, Oaths & Banners, and EINVÍGI are still being forged.
+          Playtesters, painters, miniature wargamers, and narrative skirmish
+          players are welcome as the rules and worlds take shape.
+        </p>
+
+        <div class="section-actions">
+          <a class="button primary" href="https://www.hexwerksstudios.com">Visit HexwerksStudios.com</a>
+          <a class="button" href="#downloads">View Download Status</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer>
-    <p><strong>Hexwerks Studios</strong></p>
-    <p>Dark tabletop games, miniatures, and mythic skirmish worlds.</p>
-    <p>© Hexwerks Studios · www.hexwerksstudios.com</p>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Hexwerks Studios</div>
+        <div>Dark tabletop games, miniatures, and mythic skirmish worlds.</div>
+        <div>© 2026 Hexwerks Studios</div>
+      </div>
+
+      <div class="footer-links" aria-label="Footer links">
+        <a href="#black-oaths">Black Oaths</a>
+        <a href="#downloads">Downloads</a>
+        <a href="#playtest">Playtest</a>
+      </div>
+    </div>
   </footer>
 </body>
 </html>
