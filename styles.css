@@ -477,6 +477,39 @@ section {
   gap: 18px;
 }
 
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.gallery-card {
+  margin: 0;
+  border: 1px solid var(--line);
+  background: var(--panel-solid);
+  box-shadow: 0 20px 54px var(--shadow);
+}
+
+.gallery-card-wide {
+  grid-column: span 2;
+}
+
+.gallery-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.gallery-card-wide img {
+  aspect-ratio: 16 / 9;
+}
+
+.gallery-card figcaption {
+  padding: 14px 16px 16px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
 footer {
   padding: 36px 0;
   color: var(--muted);
@@ -553,8 +586,13 @@ footer {
   .feature-grid,
   .cards,
   .lore-grid,
+  .gallery-grid,
   .detail-grid {
     grid-template-columns: 1fr;
+  }
+
+  .gallery-card-wide {
+    grid-column: auto;
   }
 
   .status-item {
