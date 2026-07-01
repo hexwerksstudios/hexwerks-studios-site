@@ -138,10 +138,11 @@ img {
 
 .hero-oaths {
   background:
-    linear-gradient(90deg, rgba(5, 5, 5, 0.94) 0%, rgba(5, 5, 5, 0.74) 48%, rgba(5, 5, 5, 0.36) 100%),
-    radial-gradient(circle at 72% 22%, rgba(118, 153, 155, 0.22), transparent 34%),
-    radial-gradient(circle at 88% 74%, rgba(139, 23, 23, 0.24), transparent 34%),
-    #070707;
+    linear-gradient(90deg, rgba(5, 5, 5, 0.94) 0%, rgba(5, 5, 5, 0.72) 46%, rgba(5, 5, 5, 0.18) 100%),
+    linear-gradient(0deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.36) 36%, rgba(5, 5, 5, 0.52) 100%),
+    url("images/oaths-and-banners/oaths-banners-warband.jpg");
+  background-position: center 48%;
+  background-size: cover;
 }
 
 .hero-einvigi {
@@ -584,6 +585,14 @@ footer {
     background:
       linear-gradient(180deg, rgba(5, 5, 5, 0.2) 0%, rgba(5, 5, 5, 0.78) 58%, rgba(5, 5, 5, 0.98) 100%),
       url("images/black-oaths/black-oaths-hero.jpg");
+    background-position: center top;
+    background-size: cover;
+  }
+
+  .hero-oaths {
+    background:
+      linear-gradient(180deg, rgba(5, 5, 5, 0.24) 0%, rgba(5, 5, 5, 0.78) 58%, rgba(5, 5, 5, 0.98) 100%),
+      url("images/oaths-and-banners/oaths-banners-warband.jpg");
     background-position: center top;
     background-size: cover;
   }
