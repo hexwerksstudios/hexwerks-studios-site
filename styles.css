@@ -118,13 +118,21 @@ img {
 }
 
 .hero-home,
-.hero-black-oaths,
 .cta {
   background:
     linear-gradient(90deg, rgba(5, 5, 5, 0.92) 0%, rgba(5, 5, 5, 0.72) 44%, rgba(5, 5, 5, 0.22) 100%),
     linear-gradient(0deg, rgba(5, 5, 5, 0.95) 0%, rgba(5, 5, 5, 0.34) 34%, rgba(5, 5, 5, 0.56) 100%),
     url("IMG_2696.jpeg");
   background-position: center top;
+  background-size: cover;
+}
+
+.hero-black-oaths {
+  background:
+    linear-gradient(90deg, rgba(5, 5, 5, 0.94) 0%, rgba(5, 5, 5, 0.74) 44%, rgba(5, 5, 5, 0.18) 100%),
+    linear-gradient(0deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.34) 36%, rgba(5, 5, 5, 0.5) 100%),
+    url("images/black-oaths/black-oaths-hero.jpg");
+  background-position: center 42%;
   background-size: cover;
 }
 
@@ -325,6 +333,14 @@ section {
   box-shadow: 0 24px 70px var(--shadow);
 }
 
+.black-oaths-media {
+  background:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.14)),
+    url("images/black-oaths/black-oaths-hero.jpg");
+  background-position: center center;
+  background-size: cover;
+}
+
 .feature-copy {
   display: grid;
   align-content: center;
@@ -511,11 +527,18 @@ footer {
   }
 
   .hero-home,
-  .hero-black-oaths,
   .cta {
     background:
       linear-gradient(180deg, rgba(5, 5, 5, 0.54) 0%, rgba(5, 5, 5, 0.88) 58%, rgba(5, 5, 5, 0.98) 100%),
       url("IMG_2696.jpeg");
+    background-position: center top;
+    background-size: cover;
+  }
+
+  .hero-black-oaths {
+    background:
+      linear-gradient(180deg, rgba(5, 5, 5, 0.2) 0%, rgba(5, 5, 5, 0.78) 58%, rgba(5, 5, 5, 0.98) 100%),
+      url("images/black-oaths/black-oaths-hero.jpg");
     background-position: center top;
     background-size: cover;
   }
