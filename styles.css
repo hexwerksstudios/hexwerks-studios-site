@@ -147,10 +147,10 @@ img {
 
 .hero-einvigi {
   background:
-    linear-gradient(90deg, rgba(5, 5, 5, 0.94) 0%, rgba(5, 5, 5, 0.72) 46%, rgba(5, 5, 5, 0.18) 100%),
-    linear-gradient(0deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.38) 36%, rgba(5, 5, 5, 0.5) 100%),
-    url("images/einvigi/einvigi-stone-circle.jpg");
-  background-position: center 38%;
+    linear-gradient(90deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.76) 43%, rgba(5, 5, 5, 0.2) 100%),
+    linear-gradient(0deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.26) 44%, rgba(5, 5, 5, 0.58) 100%),
+    url("images/einvigi/einvigi-cover.png");
+  background-position: center 46%;
   background-size: cover;
 }
 
@@ -599,8 +599,8 @@ footer {
 
   .hero-einvigi {
     background:
-      linear-gradient(180deg, rgba(5, 5, 5, 0.22) 0%, rgba(5, 5, 5, 0.78) 58%, rgba(5, 5, 5, 0.98) 100%),
-      url("images/einvigi/einvigi-stone-circle.jpg");
+      linear-gradient(180deg, rgba(5, 5, 5, 0.14) 0%, rgba(5, 5, 5, 0.72) 62%, rgba(5, 5, 5, 0.98) 100%),
+      url("images/einvigi/einvigi-cover.png");
     background-position: center top;
     background-size: cover;
   }
