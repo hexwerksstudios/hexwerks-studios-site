@@ -214,6 +214,14 @@ h3 {
   line-height: 1.38;
 }
 
+.hero-subtext {
+  max-width: 620px;
+  margin: 18px 0 0;
+  color: var(--ink);
+  font-size: clamp(17px, 2vw, 21px);
+  line-height: 1.5;
+}
+
 .lead {
   margin-bottom: 0;
   color: var(--muted);
@@ -270,6 +278,21 @@ h3 {
   background: #e1c17e;
 }
 
+.button.disabled {
+  cursor: default;
+  color: var(--soft);
+  border-color: rgba(246, 241, 232, 0.12);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.button.disabled::after {
+  content: "Coming Soon";
+  margin-left: 8px;
+  color: var(--accent);
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
 .status-strip {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -315,12 +338,84 @@ section {
   background: rgba(5, 5, 5, 0.68);
 }
 
+section[id] {
+  scroll-margin-top: 92px;
+}
+
 .section-head {
   display: grid;
   grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
   gap: 32px;
   align-items: end;
   margin-bottom: 34px;
+}
+
+.featured-games {
+  background:
+    linear-gradient(rgba(5, 5, 5, 0.72), rgba(5, 5, 5, 0.92)),
+    radial-gradient(circle at 18% 20%, rgba(139, 23, 23, 0.22), transparent 34%),
+    radial-gradient(circle at 82% 12%, rgba(197, 164, 105, 0.14), transparent 30%),
+    #060606;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.featured-card {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border: 1px solid rgba(246, 241, 232, 0.18);
+  background: #070707;
+  box-shadow: 0 28px 80px var(--shadow);
+}
+
+.featured-card-media {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-bottom: 1px solid var(--line);
+  background-color: #020202;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.featured-card-body {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+  padding: clamp(24px, 4vw, 34px);
+}
+
+.featured-card h3 {
+  margin-bottom: 0;
+  font-size: clamp(36px, 5vw, 60px);
+}
+
+.featured-card p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.featured-card .featured-line {
+  color: var(--ink);
+  font-size: clamp(20px, 2.5vw, 26px);
+  line-height: 1.35;
+}
+
+.featured-black .featured-card-media {
+  background-image:
+    url("images/black-oaths/black-oaths-cover.png");
+}
+
+.featured-einvigi .featured-card-media {
+  background-image:
+    url("images/einvigi/einvigi-cover.png");
 }
 
 .split-grid,
@@ -370,6 +465,12 @@ section {
   gap: 18px;
 }
 
+.forge-grid {
+  display: grid;
+  grid-template-columns: 1.1fr repeat(2, minmax(0, 0.95fr));
+  gap: 18px;
+}
+
 .card,
 .panel {
   border: 1px solid var(--line);
@@ -390,6 +491,12 @@ section {
 .panel {
   min-height: 240px;
   padding: 24px;
+}
+
+.forge-panel {
+  display: grid;
+  align-content: space-between;
+  gap: 18px;
 }
 
 .card-meta,
@@ -472,8 +579,70 @@ section {
   text-align: center;
 }
 
+.witnesses {
+  background:
+    linear-gradient(rgba(5, 5, 5, 0.8), rgba(5, 5, 5, 0.94)),
+    radial-gradient(circle at center top, rgba(197, 164, 105, 0.16), transparent 42%),
+    #060606;
+}
+
+.witness-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 32px;
+  text-align: left;
+}
+
+.witness-form label {
+  display: grid;
+  gap: 6px;
+  color: var(--accent);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.witness-form input,
+.witness-form textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  background: rgba(0, 0, 0, 0.42);
+  font: inherit;
+  font-size: 16px;
+  padding: 12px 14px;
+}
+
+.witness-form textarea {
+  resize: vertical;
+}
+
+.form-wide,
+.witness-form button {
+  grid-column: 1 / -1;
+}
+
 .narrow {
   max-width: 850px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.75fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.contact-panel {
+  border: 1px solid var(--line);
+  background: rgba(0, 0, 0, 0.34);
+  padding: clamp(24px, 4vw, 34px);
+}
+
+.contact-panel p {
+  color: var(--muted);
+  font-size: 18px;
 }
 
 .game-intro {
@@ -611,13 +780,20 @@ footer {
 
   .status-strip,
   .section-head,
+  .featured-grid,
   .split-grid,
   .feature-grid,
   .cards,
+  .forge-grid,
   .lore-grid,
   .gallery-grid,
-  .detail-grid {
+  .detail-grid,
+  .contact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .featured-card {
+    min-height: auto;
   }
 
   .gallery-card-wide {
@@ -648,6 +824,10 @@ footer {
   .footer-inner {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .witness-form {
+    grid-template-columns: 1fr;
   }
 }
 
