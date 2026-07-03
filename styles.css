@@ -289,7 +289,7 @@ h3 {
 }
 
 .button.disabled::after {
-  content: "Coming Soon";
+  content: "In Development";
   margin-left: 8px;
   color: var(--accent);
   font-size: 10px;
@@ -568,6 +568,19 @@ section[id] {
   color: var(--muted);
 }
 
+.status-block {
+  margin-top: 22px;
+  padding: 18px;
+  border: 1px solid rgba(214, 177, 107, 0.28);
+  background: rgba(9, 8, 7, 0.58);
+  border-radius: 8px;
+}
+
+.status-block p {
+  margin: 8px 0 0;
+  color: var(--muted);
+}
+
 .badge {
   padding: 6px 10px;
   border: 1px solid rgba(197, 164, 105, 0.45);
@@ -717,6 +730,7 @@ footer {
 
 .footer-links {
   display: flex;
+  flex-wrap: wrap;
   gap: 14px;
   font-size: 13px;
 }
@@ -746,6 +760,191 @@ footer {
   border-color: rgba(197, 164, 105, 0.72);
   color: var(--ink);
   background: rgba(197, 164, 105, 0.12);
+}
+
+.raven-scribe {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 30;
+}
+
+.raven-scribe-toggle {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border: 1px solid rgba(214, 177, 107, 0.55);
+  border-radius: 999px;
+  color: #090909;
+  background: var(--accent);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.42);
+  cursor: pointer;
+}
+
+.raven-mark {
+  width: 26px;
+  height: 26px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--accent);
+  background: #090909;
+  font-family: Cinzel, Georgia, serif;
+}
+
+.raven-scribe-panel {
+  width: min(380px, calc(100vw - 32px));
+  max-height: min(680px, calc(100vh - 96px));
+  position: absolute;
+  right: 0;
+  bottom: 62px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(214, 177, 107, 0.42);
+  border-radius: 8px;
+  color: var(--ink);
+  background: rgba(7, 7, 7, 0.97);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65);
+}
+
+.raven-scribe-panel[hidden] {
+  display: none;
+}
+
+.raven-scribe-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.raven-scribe-header h2 {
+  margin: 4px 0 0;
+  font-size: 24px;
+}
+
+.raven-scribe-close,
+.raven-scribe-prompts button,
+.raven-scribe-form button {
+  border: 1px solid var(--line);
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.04);
+  font: inherit;
+  cursor: pointer;
+}
+
+.raven-scribe-close {
+  min-height: 34px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.raven-scribe-log {
+  min-height: 170px;
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+  overflow-y: auto;
+}
+
+.raven-message {
+  padding: 12px;
+  border: 1px solid rgba(246, 241, 232, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.raven-message strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--accent);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.raven-message p {
+  margin: 0;
+  white-space: pre-line;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.raven-message-visitor {
+  border-color: rgba(214, 177, 107, 0.24);
+  background: rgba(214, 177, 107, 0.08);
+}
+
+.raven-scribe-prompts {
+  padding: 0 16px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.raven-scribe-prompts button {
+  min-height: 32px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.raven-scribe-form {
+  padding: 14px 16px 16px;
+  border-top: 1px solid var(--line);
+}
+
+.raven-scribe-form label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--soft);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.raven-scribe-form div {
+  display: flex;
+  gap: 8px;
+}
+
+.raven-scribe-form input {
+  min-width: 0;
+  flex: 1;
+  min-height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px 10px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.04);
+  font: inherit;
+}
+
+.raven-scribe-form button {
+  min-height: 42px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight: 800;
+}
+
+.raven-scribe-note {
+  margin: 0;
+  padding: 0 16px 16px;
+  color: var(--soft);
+  font-size: 12px;
+  line-height: 1.45;
 }
 
 @media (max-width: 900px) {
@@ -876,6 +1075,28 @@ footer {
 
   .button {
     width: 100%;
+  }
+
+  .raven-scribe {
+    right: 14px;
+    bottom: 14px;
+    left: 14px;
+  }
+
+  .raven-scribe-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .raven-scribe-panel {
+    width: 100%;
+    max-height: calc(100vh - 88px);
+    right: 0;
+    bottom: 62px;
+  }
+
+  .raven-scribe-form div {
+    flex-direction: column;
   }
 
   .feature-media {
