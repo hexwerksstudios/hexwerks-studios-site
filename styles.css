@@ -157,6 +157,15 @@ img {
   background-size: cover;
 }
 
+.hero-forge {
+  background:
+    linear-gradient(90deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.78) 44%, rgba(5, 5, 5, 0.34) 100%),
+    linear-gradient(0deg, rgba(5, 5, 5, 0.98) 0%, rgba(5, 5, 5, 0.42) 44%, rgba(5, 5, 5, 0.62) 100%),
+    url("IMG_2696.jpeg");
+  background-position: center top;
+  background-size: cover;
+}
+
 .hero-inner,
 .wrap,
 .footer-inner {
@@ -500,6 +509,59 @@ section[id] {
   display: grid;
   align-content: space-between;
   gap: 18px;
+}
+
+.forge-disclosure {
+  background:
+    linear-gradient(rgba(5, 5, 5, 0.82), rgba(5, 5, 5, 0.94)),
+    radial-gradient(circle at top left, rgba(197, 164, 105, 0.14), transparent 34%),
+    #060606;
+}
+
+.forge-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.forge-card {
+  min-height: 100%;
+  padding: 24px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+    var(--panel-solid);
+  box-shadow: 0 20px 54px var(--shadow);
+}
+
+.forge-card h3 {
+  margin: 8px 0 18px;
+}
+
+.forge-fields {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.forge-fields div {
+  padding-top: 12px;
+  border-top: 1px solid rgba(246, 241, 232, 0.1);
+}
+
+.forge-fields dt {
+  margin-bottom: 3px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.forge-fields dd {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
 }
 
 .card-meta,
@@ -1003,6 +1065,14 @@ footer {
     background-size: cover;
   }
 
+  .hero-forge {
+    background:
+      linear-gradient(180deg, rgba(5, 5, 5, 0.32) 0%, rgba(5, 5, 5, 0.82) 58%, rgba(5, 5, 5, 0.98) 100%),
+      url("IMG_2696.jpeg");
+    background-position: center top;
+    background-size: cover;
+  }
+
   .hero-inner {
     padding-top: 230px;
   }
@@ -1017,6 +1087,7 @@ footer {
   .lore-grid,
   .gallery-grid,
   .detail-grid,
+  .forge-card-grid,
   .contact-grid {
     grid-template-columns: 1fr;
   }

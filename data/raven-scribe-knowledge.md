@@ -56,6 +56,16 @@ Public playtest files are being prepared. No rules PDFs, final rulebooks, print 
 
 Do not present any download as available unless a real file exists in the repository and is linked on the site.
 
+## From the Forge
+
+From the Forge is the Hexwerks Studios page for studio printers, resin, filament, tools, slicers, model sources, terrain sources, hobby supplies, affiliate disclosure, credits, and licensing notes.
+
+Hexwerks Studios is not currently sponsored by any company. Some links may become affiliate links later, but no affiliate relationship should be claimed unless clearly stated.
+
+Current listed studio tools and materials: Anycubic Photon P1 for high-detail resin miniatures, prototype models, terrain details, and photography pieces; Anycubic-brand resin for detailed tabletop prototypes, miniatures, and test prints; Anycubic Kobra S1 for larger terrain pieces, test components, trays, organizers, prototype boards, and functional table parts; Anycubic-brand filament for FDM terrain, tools, organizers, and prototype components.
+
+Do not invent product links, affiliate links, sponsorships, discount codes, model sources, product claims, or license terms. If visitors ask for a missing link or source, direct them to Discord.
+
 ## Social Links
 
 Discord: https://discord.gg/8raMgxhX

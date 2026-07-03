@@ -12,6 +12,7 @@
     { title: "Oaths & Banners", words: ["oaths & banners", "oaths and banners", "shieldwall", "banners"] },
     { title: "Omens & Ravens", words: ["omens", "ravens", "hex", "portable"] },
     { title: "Hoist the Black", words: ["hoist", "ship", "cannon", "boarding", "age-of-sail", "sail"] },
+    { title: "From the Forge", words: ["forge", "printer", "printing", "resin", "filament", "anycubic", "photon", "kobra", "tools", "slicer", "stl", "model source", "affiliate"] },
     { title: "Playtesting", words: ["playtest", "testing", "development", "follow", "discord"] },
     { title: "Downloads", words: ["download", "pdf", "rulebook", "rules", "components", "print"] },
     { title: "Social Links", words: ["social", "instagram", "facebook", "reddit", "discord"] },
@@ -40,13 +41,13 @@
       '  <div class="raven-scribe-prompts" aria-label="Suggested questions">',
       '    <button type="button" data-question="What is Black Oaths?">Black Oaths</button>',
       '    <button type="button" data-question="What is EINVIGI?">EINVIGI</button>',
-      '    <button type="button" data-question="Are downloads available?">Downloads</button>',
+      '    <button type="button" data-question="What tools are used in the forge?">From the Forge</button>',
       '    <button type="button" data-question="How do I follow development?">Follow development</button>',
       '  </div>',
       '  <form class="raven-scribe-form">',
       '    <label for="raven-scribe-question">Ask about Hexwerks Studios</label>',
       '    <div>',
-      '      <input id="raven-scribe-question" name="question" type="text" autocomplete="off" maxlength="180" placeholder="Ask about games, playtesting, downloads, or socials">',
+      '      <input id="raven-scribe-question" name="question" type="text" autocomplete="off" maxlength="180" placeholder="Ask about games, playtesting, the forge, or socials">',
       '      <button type="submit">Ask</button>',
       '    </div>',
       '  </form>',
@@ -70,7 +71,7 @@
       toggle.setAttribute("aria-expanded", "true");
       loadKnowledge().then(function () {
         if (!log.children.length) {
-          addMessage(log, "scribe", "Ask me about Hexwerks Studios, Black Oaths, EINVIGI, playtesting, downloads, or social links. I only answer from approved notes.");
+          addMessage(log, "scribe", "Ask me about Hexwerks Studios, Black Oaths, EINVIGI, playtesting, From the Forge, downloads, or social links. I only answer from approved notes.");
         }
         input.focus();
       });
