@@ -72,6 +72,16 @@ Third-party models are not Hexwerks Studios sculpts unless specifically stated. 
 
 Do not invent product links, affiliate links, sponsorships, discount codes, additional model sources, product claims, commercial rights, or license terms. If visitors ask for a missing link or source, direct them to Discord.
 
+## Forge Files
+
+Forge Files are original Hexwerks Studios printable files: prototype terrain, game components, table tools, and physical pieces built for dark tabletop play.
+
+Only STL files created by Hexwerks Studios or files Hexwerks Studios has explicit rights to distribute should be listed as Forge Files. Do not list third-party STL files from Bestiarum, Printable Scenery, Victrix, or other creators unless written permission or license terms are provided.
+
+No checkout, download, Payhip, Gumroad, Shopify, or direct purchase links are active yet.
+
+Unless otherwise stated, Hexwerks Studios STL files are for personal tabletop use only. Files may not be resold, redistributed, uploaded elsewhere, or commercially printed without written permission from Hexwerks Studios.
+
 ## Social Links
 
 Discord: https://discord.gg/8raMgxhX
