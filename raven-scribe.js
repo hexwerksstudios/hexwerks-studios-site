@@ -1,21 +1,34 @@
 (function () {
   "use strict";
 
-  var KNOWLEDGE_URL = "data/raven-scribe-knowledge.md";
+  var KNOWLEDGE_URLS = [
+    "data/raven-scribe-knowledge.md",
+    "data/einvigi-rules-knowledge.md"
+  ];
   var DISCORD_URL = "https://discord.gg/8raMgxhX";
   var knowledgeSections = [];
   var knowledgeLoaded = false;
 
   var topicMap = [
     { title: "Black Oaths", words: ["black oaths", "warband", "skirmish", "relic", "saint", "blood", "old gods"] },
-    { title: "EINVIGI", words: ["einvigi", "einvígi", "duel", "holmgang", "hazel", "wyrd", "momentum", "overreach", "ring-out", "killing ground"] },
+    { title: "EINVIGI Rules: How the Duel Works", words: ["how does einvigi play", "how does einvigi work", "duel loop", "round sequence", "secret intent", "hidden intent"] },
+    { title: "EINVIGI Rules: What You Need", words: ["what do i need", "components", "fighter board", "movement cards", "action cards", "tokens"] },
+    { title: "EINVIGI Rules: Hazel-Bound Ground", words: ["hazel-bound", "killing ground", "arena", "center circle", "middle band", "edge band", "outer hazel"] },
+    { title: "EINVIGI Rules: Hazel Staves", words: ["hazel stave", "hazel staves", "short hazel", "long hazel", "crooked hazel", "pre-measuring", "pre measuring"] },
+    { title: "EINVIGI Rules: Movement", words: ["primary movement", "follow-up movement", "follow up movement", "movement order", "step in", "step back", "rush", "circle", "slip"] },
+    { title: "EINVIGI Rules: Action Cards", words: ["action card", "action cards", "strike", "grapple", "guard", "maneuver", "feint", "dice"] },
+    { title: "EINVIGI Rules: Attacks and Defenses", words: ["attack", "defense", "defence", "strike resolution", "grapple resolution", "push", "drive", "turn", "control"] },
+    { title: "EINVIGI Rules: Wyrd Momentum and Overreach", words: ["wyrd", "momentum", "overreach", "angle", "resource", "resources", "tactical advantage"] },
+    { title: "EINVIGI Rules: Wounds and Victory", words: ["wound", "wounds", "bloodied", "broken", "slain", "victory", "defeated"] },
+    { title: "EINVIGI Rules: Ring-Out", words: ["ring-out", "ring out", "out of the ring", "pushed out", "outer boundary"] },
+    { title: "EINVIGI", words: ["einvigi", "einvígi", "duel", "holmgang"] },
     { title: "Oaths & Banners", words: ["oaths & banners", "oaths and banners", "shieldwall", "banners"] },
     { title: "Omens & Ravens", words: ["omens", "ravens", "hex", "portable"] },
     { title: "Hoist the Black", words: ["hoist", "ship", "cannon", "boarding", "age-of-sail", "sail"] },
+    { title: "Downloads", words: ["download", "pdf", "rulebook", "rules", "components", "print"] },
     { title: "Forge Files", words: ["forge files", "stl", "download", "payhip", "gumroad", "shopify", "printable files", "personal use", "license"] },
     { title: "From the Forge", words: ["from the forge", "printer", "printing", "resin", "filament", "anycubic", "photon", "kobra", "tools", "slicer", "model source", "affiliate"] },
     { title: "Playtesting", words: ["playtest", "testing", "development", "follow", "discord"] },
-    { title: "Downloads", words: ["download", "pdf", "rulebook", "rules", "components", "print"] },
     { title: "Social Links", words: ["social", "instagram", "facebook", "reddit", "discord"] },
     { title: "Contact", words: ["contact", "email", "message"] },
     { title: "Hexwerks Studios", words: ["hexwerks", "studio", "about", "who"] }
@@ -123,15 +136,19 @@
       return Promise.resolve();
     }
 
-    return fetch(KNOWLEDGE_URL, { cache: "no-store" })
-      .then(function (response) {
-        if (!response.ok) {
-          throw new Error("Knowledge file unavailable");
-        }
-        return response.text();
-      })
-      .then(function (text) {
-        knowledgeSections = parseKnowledge(text);
+    return Promise.all(KNOWLEDGE_URLS.map(function (url) {
+      return fetch(url, { cache: "no-store" })
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error("Knowledge file unavailable: " + url);
+          }
+          return response.text();
+        });
+    }))
+      .then(function (texts) {
+        knowledgeSections = texts.reduce(function (sections, text) {
+          return sections.concat(parseKnowledge(text));
+        }, []);
         knowledgeLoaded = true;
       })
       .catch(function () {
