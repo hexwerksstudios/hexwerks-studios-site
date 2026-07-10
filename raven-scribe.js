@@ -3,13 +3,27 @@
 
   var KNOWLEDGE_URLS = [
     "data/raven-scribe-knowledge.md",
-    "data/einvigi-rules-knowledge.md"
+    "data/einvigi-rules-knowledge.md",
+    "data/black-oaths-rules-knowledge.md"
   ];
   var DISCORD_URL = "https://discord.gg/8raMgxhX";
   var knowledgeSections = [];
   var knowledgeLoaded = false;
 
   var topicMap = [
+    { title: "Black Oaths Rules: How the Skirmish Works", words: ["how does black oaths play", "how does black oaths work", "black oaths rules", "black oaths turn", "black oaths activation"] },
+    { title: "Black Oaths Rules: What You Need", words: ["black oaths components", "black oaths what do i need", "36", "battlefield", "markers"] },
+    { title: "Black Oaths Rules: Turn and Activations", words: ["initiative phase", "activation phase", "fate phase", "activate", "activating", "standing up"] },
+    { title: "Black Oaths Rules: Actions", words: ["move action", "charge", "withdraw", "scramble", "ranged action", "fight action", "special action", "action lockout"] },
+    { title: "Black Oaths Rules: Fate Tests", words: ["fate test", "fate dice", "doom dice", "forsaken", "favored", "foretold", "peril test"] },
+    { title: "Black Oaths Rules: Norn-Marks and Wyrd", words: ["norn-mark", "norn marks", "norn-marks", "wyrd", "deathblow"] },
+    { title: "Black Oaths Rules: Combat", words: ["black oaths combat", "melee attack", "ranged attack", "visibility", "engaged", "within 1"] },
+    { title: "Black Oaths Rules: Wounds Down and Lost", words: ["wound roll", "wound rolls", "down model", "down models", "lost model", "lost models", "no harm"] },
+    { title: "Black Oaths Rules: Warband Fate", words: ["doomed", "fate roll", "warband breaks", "breaks", "leader lost"] },
+    { title: "Black Oaths Rules: Warband Building", words: ["build a warband", "100 silver", "old oaths", "new covenant", "harbinger", "leader", "sworn", "levy", "oathbound"] },
+    { title: "Black Oaths Rules: Prophecy Black Oaths and Glory", words: ["prophecy", "prophecies", "black oath", "black oaths", "glory", "oath of"] },
+    { title: "Black Oaths Rules: Campaigns", words: ["campaign", "injury", "injuries", "scar", "nickname", "advancement", "blood feud", "spoils"] },
+    { title: "Black Oaths Rules: Traditions and Factions", words: ["tradition", "traditions", "faction", "factions", "vestfold", "uppsala", "jutland", "austvegr", "saxon", "frisian", "frankish", "border oathbreakers"] },
     { title: "Black Oaths", words: ["black oaths", "warband", "skirmish", "relic", "saint", "blood", "old gods"] },
     { title: "EINVIGI Rules: How the Duel Works", words: ["how does einvigi play", "how does einvigi work", "duel loop", "round sequence", "secret intent", "hidden intent"] },
     { title: "EINVIGI Rules: What You Need", words: ["what do i need", "components", "fighter board", "movement cards", "action cards", "tokens"] },
