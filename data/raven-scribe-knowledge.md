@@ -38,6 +38,12 @@ Omens & Ravens is a compact hex-based tactical game concept about portable battl
 
 The game is in concepting. No public rules download is posted on the website.
 
+## Death Spiral
+
+Death Spiral is a coming-soon Hexwerks Studios project. Original Hexwerks printable prototype pieces, table tools, and STL files are being created for it.
+
+No public rules download, STL download, checkout, price, release date, or product availability is posted on the website yet.
+
 ## Hoist the Black
 
 Hoist the Black is a brutal age-of-sail ship combat concept about wind, cannon smoke, boarding, infamy, and command decisions.
@@ -77,6 +83,8 @@ Do not invent product links, affiliate links, sponsorships, discount codes, addi
 Forge Files are original Hexwerks Studios printable files: prototype terrain, game components, table tools, and physical pieces built for dark tabletop play.
 
 Only STL files created by Hexwerks Studios or files Hexwerks Studios has explicit rights to distribute should be listed as Forge Files. Do not list third-party STL files from Bestiarum, Printable Scenery, Victrix, or other creators unless written permission or license terms are provided.
+
+Death Spiral prototype components and table tools are listed as coming soon. Exact STL file lists, print notes, usage notes, downloads, and purchase links should not be invented.
 
 No checkout, download, Payhip, Gumroad, Shopify, or direct purchase links are active yet.
 

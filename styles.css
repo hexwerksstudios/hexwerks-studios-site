@@ -520,6 +520,37 @@ section[id] {
   gap: 18px;
 }
 
+.forge-panel-cover {
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(210px, 0.55fr) minmax(0, 1.45fr);
+  align-items: center;
+}
+
+.forge-cover-art {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #020202;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.48);
+}
+
+.forge-cover-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.forge-panel-copy {
+  min-width: 0;
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.forge-panel-copy h3,
+.forge-panel-copy p {
+  margin: 0;
+}
+
 .forge-disclosure {
   background:
     linear-gradient(rgba(5, 5, 5, 0.82), rgba(5, 5, 5, 0.94)),
@@ -1232,6 +1263,15 @@ footer {
 
   .button {
     width: 100%;
+  }
+
+  .forge-panel-cover {
+    grid-template-columns: 1fr;
+  }
+
+  .forge-cover-art {
+    width: min(100%, 260px);
+    margin-inline: auto;
   }
 
   .raven-scribe {

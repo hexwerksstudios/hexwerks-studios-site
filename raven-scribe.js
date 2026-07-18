@@ -38,6 +38,7 @@
     { title: "EINVIGI", words: ["einvigi", "einvígi", "duel", "holmgang"] },
     { title: "Oaths & Banners", words: ["oaths & banners", "oaths and banners", "shieldwall", "banners"] },
     { title: "Omens & Ravens", words: ["omens", "ravens", "hex", "portable"] },
+    { title: "Death Spiral", words: ["death spiral"] },
     { title: "Hoist the Black", words: ["hoist", "ship", "cannon", "boarding", "age-of-sail", "sail"] },
     { title: "Downloads", words: ["download", "pdf", "rulebook", "rules", "components", "print"] },
     { title: "Forge Files", words: ["forge files", "stl", "download", "payhip", "gumroad", "shopify", "printable files", "personal use", "license"] },
