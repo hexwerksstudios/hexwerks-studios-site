@@ -92,7 +92,7 @@ Unless otherwise stated, Hexwerks Studios STL files are for personal tabletop us
 
 ## Social Links
 
-Discord: https://discord.gg/8raMgxhX
+Discord: https://discord.gg/AYHMBYaMqc
 
 Facebook: https://www.facebook.com/HexwerksStudios
 

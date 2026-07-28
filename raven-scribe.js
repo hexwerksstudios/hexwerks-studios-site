@@ -6,7 +6,7 @@
     "data/einvigi-rules-knowledge.md",
     "data/black-oaths-rules-knowledge.md"
   ];
-  var DISCORD_URL = "https://discord.gg/8raMgxhX";
+  var DISCORD_URL = "https://discord.gg/AYHMBYaMqc";
   var knowledgeSections = [];
   var knowledgeLoaded = false;
 
