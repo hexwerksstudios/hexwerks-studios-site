@@ -42,7 +42,7 @@
     { title: "Hoist the Black", words: ["hoist", "ship", "cannon", "boarding", "age-of-sail", "sail"] },
     { title: "Downloads", words: ["download", "pdf", "rulebook", "rules", "components", "print"] },
     { title: "Forge Files", words: ["forge files", "stl", "download", "payhip", "gumroad", "shopify", "printable files", "personal use", "license"] },
-    { title: "From the Forge", words: ["from the forge", "printer", "printing", "resin", "filament", "anycubic", "photon", "kobra", "tools", "slicer", "model source", "affiliate"] },
+    { title: "From the Werks", words: ["from the werks", "from the forge", "printer", "printing", "resin", "filament", "anycubic", "photon", "kobra", "tools", "slicer", "model source", "affiliate"] },
     { title: "Playtesting", words: ["playtest", "testing", "development", "follow", "discord"] },
     { title: "Social Links", words: ["social", "instagram", "facebook", "reddit", "discord"] },
     { title: "Contact", words: ["contact", "email", "message"] },
@@ -70,7 +70,7 @@
       '  <div class="raven-scribe-prompts" aria-label="Suggested questions">',
       '    <button type="button" data-question="What is Black Oaths?">Black Oaths</button>',
       '    <button type="button" data-question="What is EINVIGI?">EINVIGI</button>',
-      '    <button type="button" data-question="What tools are used in the forge?">From the Forge</button>',
+      '    <button type="button" data-question="What tools are used in the werks?">From the Werks</button>',
       '    <button type="button" data-question="How do I follow development?">Follow development</button>',
       '  </div>',
       '  <form class="raven-scribe-form">',
@@ -100,7 +100,7 @@
       toggle.setAttribute("aria-expanded", "true");
       loadKnowledge().then(function () {
         if (!log.children.length) {
-          addMessage(log, "scribe", "Ask me about Hexwerks Studios, Black Oaths, EINVIGI, playtesting, From the Forge, downloads, or social links. I only answer from approved notes.");
+          addMessage(log, "scribe", "Ask me about Hexwerks Studios, Black Oaths, EINVIGI, playtesting, From the Werks, downloads, or social links. I only answer from approved notes.");
         }
         input.focus();
       });
