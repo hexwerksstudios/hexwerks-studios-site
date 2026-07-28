@@ -551,6 +551,27 @@ section[id] {
   margin: 0;
 }
 
+.force-builder-callout {
+  display: grid;
+  gap: 10px;
+  margin-top: 4px;
+  padding: 18px;
+  border: 1px solid rgba(197, 164, 105, 0.38);
+  background: rgba(197, 164, 105, 0.065);
+}
+
+.force-builder-callout h4 {
+  margin: 0;
+  color: var(--ink);
+  font-size: 21px;
+  line-height: 1.2;
+}
+
+.force-builder-callout .button {
+  width: fit-content;
+  margin-top: 4px;
+}
+
 .forge-disclosure {
   background:
     linear-gradient(rgba(5, 5, 5, 0.82), rgba(5, 5, 5, 0.94)),
@@ -1262,6 +1283,10 @@ footer {
   }
 
   .button {
+    width: 100%;
+  }
+
+  .force-builder-callout .button {
     width: 100%;
   }
 
