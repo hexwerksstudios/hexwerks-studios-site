@@ -40,9 +40,29 @@ The game is in concepting. No public rules download is posted on the website.
 
 ## Death Spiral
 
-Death Spiral is a coming-soon Hexwerks Studios project. Original Hexwerks printable prototype pieces, table tools, and STL files are being created for it.
+Death Spiral is the flagship Hexwerks Studios project: a fast, character-driven WWI aircraft combat game supported by a connected printable tabletop ecosystem.
 
-No public rules download, STL download, checkout, price, release date, or product availability is posted on the website yet.
+The game focuses on pilot identity, aircraft character, energy, positioning, and risk without presenting itself as a dense flight simulator. It is designed to support dramatic and readable dogfights, campaigns, and legendary aces.
+
+## Death Spiral Ecosystem
+
+The Death Spiral ecosystem has four current system families:
+
+- HexFlight: printable aircraft miniatures developed as practical, durable tabletop game pieces.
+- HexAxis: the articulated printable flight-stand platform being developed for aircraft support and clear table reference.
+- Death Spiral Battlefield: the current printable WWI battlefield set beneath the dogfight.
+- Hexlink: the developing connection or assembly term for printed battlefield sections.
+- Printable Accessories: pilot cards, aircraft cards, markers, mission tools, and future support pieces.
+
+The live Death Spiral Force Builder is at https://death-spiral-force-builder.jaykymm666.chatgpt.site. It builds legal forces, assigns historical aces, and creates print-ready aircraft cards.
+
+## Aircraft Hangar
+
+No verified individual aircraft roster is currently published on the website. Do not claim that a Fokker Dr.I, Albatros D.Va, SE5a, Sopwith Camel, or any other aircraft is available until its specific record is added.
+
+No public Death Spiral rules download, STL download, checkout, price, release date, or product availability is posted on the website yet.
+
+For current development and playtest details, direct visitors to Discord.
 
 ## Hoist the Black
 
@@ -58,9 +78,9 @@ Use Discord for current development talk, playtest calls, table questions, rules
 
 ## Downloads
 
-Public playtest files are being prepared. No rules PDFs, final rulebooks, print components, or reference sheets are currently published on the website.
+The Downloads page will gather public rules, playtest documents, reference sheets, print files, assembly guides, and community resources as they are released.
 
-Do not present any download as available unless a real file exists in the repository and is linked on the site.
+No public download has been confirmed for the current site. Do not provide or invent download links. For current playtest material and development questions, direct visitors to Discord.
 
 ## From the Werks
 

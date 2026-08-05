@@ -152,7 +152,7 @@ img {
   background:
     linear-gradient(90deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.76) 43%, rgba(5, 5, 5, 0.2) 100%),
     linear-gradient(0deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.26) 44%, rgba(5, 5, 5, 0.58) 100%),
-    url("images/einvigi/einvigi-cover.png");
+    url("images/einvigi/einvigi-cover.webp");
   background-position: center 46%;
   background-size: cover;
 }
@@ -443,7 +443,7 @@ section[id] {
 
 .featured-einvigi .featured-card-media {
   background-image:
-    url("images/einvigi/einvigi-cover.png");
+    url("images/einvigi/einvigi-cover.webp");
 }
 
 .split-grid,
@@ -962,19 +962,20 @@ footer {
 
 .raven-scribe {
   position: fixed;
-  right: 20px;
-  bottom: 20px;
+  right: max(16px, env(safe-area-inset-right, 0px));
+  bottom: max(16px, env(safe-area-inset-bottom, 0px));
   z-index: 30;
+  transition: opacity 160ms ease, visibility 160ms ease;
 }
 
 .raven-scribe-toggle {
-  min-height: 48px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 16px;
+  width: 52px;
+  height: 52px;
+  display: inline-grid;
+  place-items: center;
+  padding: 0;
   border: 1px solid rgba(214, 177, 107, 0.55);
-  border-radius: 999px;
+  border-radius: 50%;
   color: #090909;
   background: var(--accent);
   font: inherit;
@@ -984,6 +985,18 @@ footer {
   text-transform: uppercase;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.42);
   cursor: pointer;
+}
+
+.raven-scribe.is-footer-near:not(.is-open) {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.raven-scribe.is-obscuring-content:not(.is-open) {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
 }
 
 .raven-mark {
@@ -999,11 +1012,14 @@ footer {
 
 .raven-scribe-panel {
   width: min(380px, calc(100vw - 32px));
-  max-height: min(680px, calc(100vh - 96px));
-  position: absolute;
-  right: 0;
-  bottom: 62px;
-  display: flex;
+  height: min(620px, calc(100svh - 72px));
+  max-height: calc(100svh - 72px);
+  position: fixed;
+  inset: auto max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) auto;
+  display: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
   flex-direction: column;
   overflow: hidden;
   border: 1px solid rgba(214, 177, 107, 0.42);
@@ -1013,8 +1029,13 @@ footer {
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.65);
 }
 
-.raven-scribe-panel[hidden] {
-  display: none;
+.raven-scribe-panel[open] {
+  display: flex;
+}
+
+.raven-scribe-panel::backdrop {
+  background: rgba(0, 0, 0, 0.58);
+  backdrop-filter: blur(2px);
 }
 
 .raven-scribe-header {
@@ -1049,7 +1070,8 @@ footer {
 }
 
 .raven-scribe-log {
-  min-height: 170px;
+  min-height: 0;
+  flex: 1;
   padding: 16px;
   display: grid;
   gap: 12px;
@@ -1145,6 +1167,12 @@ footer {
   line-height: 1.45;
 }
 
+@media (max-height: 620px) {
+  .raven-scribe {
+    display: none;
+  }
+}
+
 @media (max-width: 900px) {
   .nav {
     min-height: auto;
@@ -1196,7 +1224,7 @@ footer {
   .hero-einvigi {
     background:
       linear-gradient(180deg, rgba(5, 5, 5, 0.14) 0%, rgba(5, 5, 5, 0.72) 62%, rgba(5, 5, 5, 0.98) 100%),
-      url("images/einvigi/einvigi-cover.png");
+      url("images/einvigi/einvigi-cover.webp");
     background-position: center top;
     background-size: cover;
   }
@@ -1313,25 +1341,22 @@ footer {
   }
 
   .raven-scribe {
-    right: 14px;
-    bottom: 14px;
-    left: 14px;
+    right: max(14px, env(safe-area-inset-right, 0px));
+    bottom: max(14px, env(safe-area-inset-bottom, 0px));
+    left: auto;
   }
 
   .raven-scribe-toggle {
-    width: 100%;
-    justify-content: center;
+    width: 48px;
+    height: 48px;
   }
 
   .raven-scribe-panel {
-    width: 100%;
-    max-height: calc(100vh - 88px);
-    right: 0;
-    bottom: 62px;
-  }
-
-  .raven-scribe-form div {
-    flex-direction: column;
+    width: min(390px, calc(100vw - 28px));
+    height: min(600px, calc(100svh - 56px));
+    max-height: calc(100svh - 56px);
+    right: max(14px, env(safe-area-inset-right, 0px));
+    bottom: max(14px, env(safe-area-inset-bottom, 0px));
   }
 
   .feature-media {

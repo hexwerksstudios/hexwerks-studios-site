@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{AIRCRAFT_NAME}} | Death Spiral Aircraft | Hexwerks Studios</title>
+  <meta name="description" content="{{VERIFIED_META_DESCRIPTION}}">
+  <link rel="canonical" href="https://www.hexwerksstudios.com/death-spiral/aircraft/{{SLUG}}/">
+  <meta property="og:title" content="{{AIRCRAFT_NAME}} | Death Spiral">
+  <meta property="og:description" content="{{VERIFIED_META_DESCRIPTION}}">
+  <meta property="og:image" content="https://www.hexwerksstudios.com/{{VERIFIED_IMAGE_PATH}}">
+  <meta property="og:type" content="article">
+  <link rel="stylesheet" href="/styles.css?v=20260805-ecosystem">
+  <link rel="stylesheet" href="/site.css?v=20260805-ecosystem">
+  <script src="/data/site-content.js" defer></script>
+  <script src="/site.js" defer></script>
+</head>
+<body class="site-redesign">
+  <div class="topbar" data-site-header><nav class="site-nav" aria-label="Primary navigation"><a class="site-brand" href="/">Hexwerks Studios</a></nav></div>
+  <main id="main-content">
+    <header class="page-hero">
+      <div class="site-wrap page-hero-grid">
+        <div class="page-hero-copy">
+          <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/death-spiral/">Death Spiral</a><span>/</span><a href="/death-spiral/aircraft/">Aircraft</a><span>/</span><span>{{AIRCRAFT_NAME}}</span></nav>
+          <span class="eyebrow">{{NATIONALITY}} &middot; {{HISTORICAL_PERIOD}} &middot; {{MODEL_STATUS}}</span>
+          <h1>{{AIRCRAFT_NAME}}</h1>
+          <p class="hero-deck">{{SHORT_VERIFIED_IDENTITY}}</p>
+        </div>
+        <div class="page-hero-media"><img src="/{{VERIFIED_IMAGE_PATH}}" alt="{{DESCRIPTIVE_ALT_TEXT}}"></div>
+      </div>
+    </header>
+    <section class="site-section"><div class="site-wrap editorial-split"><div><span class="eyebrow">Historical identity</span><h2>{{ORIGINAL_SECTION_HEADING}}</h2></div><div class="editorial-copy"><p>{{CONCISE_ORIGINAL_HISTORY}}</p></div></div></section>
+    <section class="site-section site-section-dark"><div class="site-wrap editorial-split"><div><span class="eyebrow">Death Spiral role</span><h2>{{TABLETOP_ROLE_HEADING}}</h2></div><div class="editorial-copy"><p>{{VERIFIED_TABLETOP_ROLE}}</p></div></div></section>
+    <section class="site-section"><div class="site-wrap"><div class="section-heading"><span class="eyebrow">Model development</span><h2>Workshop record.</h2></div><dl class="spec-list"><div><dt>Model status</dt><dd>{{MODEL_STATUS}}</dd></div><div><dt>Design notes</dt><dd>{{VERIFIED_DESIGN_NOTES}}</dd></div><div><dt>Compatibility</dt><dd>{{VERIFIED_COMPATIBILITY}}</dd></div><div><dt>Availability</dt><dd>{{REAL_AVAILABILITY_OR_NOT_AVAILABLE}}</dd></div></dl></div></section>
+  </main>
+  <footer class="site-footer"><div class="site-footer-grid"><p>Hexwerks Studios</p></div></footer>
+  <script src="/raven-scribe.js" defer></script>
+</body>
+</html>

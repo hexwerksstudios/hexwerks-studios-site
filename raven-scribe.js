@@ -2,9 +2,9 @@
   "use strict";
 
   var KNOWLEDGE_URLS = [
-    "data/raven-scribe-knowledge.md",
-    "data/einvigi-rules-knowledge.md",
-    "data/black-oaths-rules-knowledge.md"
+    "/data/raven-scribe-knowledge.md",
+    "/data/einvigi-rules-knowledge.md",
+    "/data/black-oaths-rules-knowledge.md"
   ];
   var DISCORD_URL = "https://discord.gg/AYHMBYaMqc";
   var knowledgeSections = [];
@@ -38,9 +38,11 @@
     { title: "EINVIGI", words: ["einvigi", "einvígi", "duel", "holmgang"] },
     { title: "Oaths & Banners", words: ["oaths & banners", "oaths and banners", "shieldwall", "banners"] },
     { title: "Omens & Ravens", words: ["omens", "ravens", "hex", "portable"] },
-    { title: "Death Spiral", words: ["death spiral"] },
+    { title: "Death Spiral", words: ["death spiral", "wwi", "dogfight", "pilot", "aircraft", "force builder"] },
+    { title: "Death Spiral Ecosystem", words: ["ecosystem", "systems", "hexflight", "hexaxis", "hexlink", "death spiral battlefield", "modular battlefield", "accessories", "flight stand"] },
+    { title: "Aircraft Hangar", words: ["aircraft hangar", "aircraft list", "aircraft model", "fokker", "albatros", "sopwith", "se5"] },
     { title: "Hoist the Black", words: ["hoist", "ship", "cannon", "boarding", "age-of-sail", "sail"] },
-    { title: "Downloads", words: ["download", "pdf", "rulebook", "rules", "components", "print"] },
+    { title: "Downloads", words: ["download", "pdf", "rulebook", "rules", "components", "print", "assembly guide"] },
     { title: "Forge Files", words: ["forge files", "stl", "download", "payhip", "gumroad", "shopify", "printable files", "personal use", "license"] },
     { title: "From the Werks", words: ["from the werks", "from the forge", "printer", "printing", "resin", "filament", "anycubic", "photon", "kobra", "tools", "slicer", "model source", "affiliate"] },
     { title: "Playtesting", words: ["playtest", "testing", "development", "follow", "discord"] },
@@ -54,17 +56,16 @@
     root.className = "raven-scribe";
     root.setAttribute("aria-label", "The Raven-Scribe question bot");
     root.innerHTML = [
-      '<button class="raven-scribe-toggle" type="button" aria-expanded="false" aria-controls="raven-scribe-panel">',
+      '<button class="raven-scribe-toggle" type="button" aria-expanded="false" aria-controls="raven-scribe-panel" aria-haspopup="dialog" aria-label="Open the Raven-Scribe">',
       '  <span class="raven-mark" aria-hidden="true">R</span>',
-      '  <span>Ask The Raven-Scribe</span>',
       '</button>',
-      '<div class="raven-scribe-panel" id="raven-scribe-panel" hidden>',
+      '<dialog class="raven-scribe-panel" id="raven-scribe-panel" aria-labelledby="raven-scribe-title">',
       '  <div class="raven-scribe-header">',
       '    <div>',
       '      <span class="tag">Read-only guide</span>',
-      '      <h2>The Raven-Scribe</h2>',
+      '      <h2 id="raven-scribe-title">The Raven-Scribe</h2>',
       '    </div>',
-      '    <button class="raven-scribe-close" type="button" aria-label="Close The Raven-Scribe">Close</button>',
+      '    <button class="raven-scribe-close" type="button" aria-label="Minimize the Raven-Scribe">Minimize</button>',
       '  </div>',
       '  <div class="raven-scribe-log" aria-live="polite"></div>',
       '  <div class="raven-scribe-prompts" aria-label="Suggested questions">',
@@ -76,12 +77,12 @@
       '  <form class="raven-scribe-form">',
       '    <label for="raven-scribe-question">Ask about Hexwerks Studios</label>',
       '    <div>',
-      '      <input id="raven-scribe-question" name="question" type="text" autocomplete="off" maxlength="180" placeholder="Ask about games, playtesting, the forge, or socials">',
+      '      <input id="raven-scribe-question" name="question" type="text" autocomplete="off" maxlength="180">',
       '      <button type="submit">Ask</button>',
       '    </div>',
       '  </form>',
       '  <p class="raven-scribe-note">The Raven-Scribe answers only from approved site notes. For uncertain matters, join Discord.</p>',
-      '</div>'
+      '</dialog>'
     ].join("");
     document.body.appendChild(root);
     wireWidget(root);
@@ -94,9 +95,15 @@
     var log = root.querySelector(".raven-scribe-log");
     var form = root.querySelector(".raven-scribe-form");
     var input = root.querySelector("#raven-scribe-question");
+    var footer = document.querySelector(".site-footer");
 
     function openPanel() {
-      panel.hidden = false;
+      if (typeof panel.showModal === "function") {
+        panel.showModal();
+      } else {
+        panel.setAttribute("open", "");
+      }
+      root.classList.add("is-open");
       toggle.setAttribute("aria-expanded", "true");
       loadKnowledge().then(function () {
         if (!log.children.length) {
@@ -107,13 +114,18 @@
     }
 
     function closePanel() {
-      panel.hidden = true;
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.focus();
+      if (panel.open && typeof panel.close === "function") {
+        panel.close();
+      } else {
+        panel.removeAttribute("open");
+        root.classList.remove("is-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.focus();
+      }
     }
 
     toggle.addEventListener("click", function () {
-      if (panel.hidden) {
+      if (!panel.open) {
         openPanel();
       } else {
         closePanel();
@@ -121,6 +133,52 @@
     });
 
     close.addEventListener("click", closePanel);
+
+    panel.addEventListener("close", function () {
+      root.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+      toggle.focus();
+    });
+
+    if (footer && "IntersectionObserver" in window) {
+      new IntersectionObserver(function (entries) {
+        root.classList.toggle("is-footer-near", entries.some(function (entry) {
+          return entry.isIntersecting;
+        }));
+      }, { threshold: 0.12 }).observe(footer);
+    }
+
+    function launcherOverlapsContent() {
+      if (root.classList.contains("is-open")) {
+        return false;
+      }
+
+      var launcher = toggle.getBoundingClientRect();
+      var targets = document.querySelectorAll(
+        "main :is(h1, h2, h3, p, figure, .system-card, .game-card, .development-card, .roadmap-item, .ecosystem-step, a.button-primary, a.button-secondary, a.button-quiet, button, input, textarea, select)"
+      );
+
+      return Array.prototype.some.call(targets, function (target) {
+        var box = target.getBoundingClientRect();
+        return box.width > 0 && box.height > 0 &&
+          launcher.left < box.right && launcher.right > box.left &&
+          launcher.top < box.bottom && launcher.bottom > box.top;
+      });
+    }
+
+    var visibilityFrame;
+    function updateLauncherVisibility() {
+      window.cancelAnimationFrame(visibilityFrame);
+      visibilityFrame = window.requestAnimationFrame(function () {
+        var obscuring = launcherOverlapsContent();
+        root.classList.toggle("is-obscuring-content", obscuring);
+        toggle.tabIndex = obscuring ? -1 : 0;
+      });
+    }
+
+    window.addEventListener("scroll", updateLauncherVisibility, { passive: true });
+    window.addEventListener("resize", updateLauncherVisibility);
+    updateLauncherVisibility();
 
     root.querySelectorAll("[data-question]").forEach(function (button) {
       button.addEventListener("click", function () {
