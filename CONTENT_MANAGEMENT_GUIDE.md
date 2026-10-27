@@ -21,20 +21,11 @@ The site is plain HTML with lightweight structured data. Public facts must come 
 
 ## Add An Aircraft
 
-1. Confirm the aircraft type, variant, model status, and image with the studio.
-2. Store authentic media under `images/death-spiral/aircraft/<slug>/`.
-3. Add an object to `aircraft` in `data/site-content.js` with:
-   - Name and slug
-   - Nationality
-   - Historical period
-   - Short historical identity
-   - Death Spiral tabletop role
-   - Model development status
-   - Thumbnail and descriptive alt text
-   - Detail-page route
-   - Availability or download only when real
-4. Copy `templates/aircraft-detail-page.html.template` to `/death-spiral/aircraft/<slug>/index.html`, replace every placeholder, and remove any section that lacks verified content.
-5. Avoid copied historical passages. Use concise original summaries.
+1. Confirm the exact aircraft variant, physical product format, scale, and public purchase destination with the studio.
+2. For a verified physical listing, add an object to `aircraft` in `data/site-content.js` with `name`, `slug`, `scale`, `format`, `status`, `href`, and `sortOrder`. The current four records use the shared `store.href`; `store.verifiedOn` records the verification date, not live stock status.
+3. Keep purchase cards text-only until matching product photography is approved. Existing prototype photographs must not be presented as photos of a specific sale item. Refer customers to eBay for product photos, current availability, prices, shipping, and listing contents.
+4. Death Spiral's official tabletop scale is **1/144**, matching the physical resin miniatures in the eBay store, as clarified by the studio on October 27, 2026. Aircraft listings do not make the tabletop game, digital game, prototype HexAxis equipment, or print files released products.
+5. For a future detailed aircraft profile, verify its historical identity and tabletop role, store authentic media under `images/death-spiral/aircraft/<slug>/`, and use `templates/aircraft-detail-page.html.template`. Replace every placeholder, remove unsupported sections, and add a route only when the page exists. Avoid copied historical passages.
 
 ## Add A Download
 

@@ -578,6 +578,35 @@ body.nav-open {
   font-weight: 800;
 }
 
+.aircraft-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.aircraft-card {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 26px;
+  border: 1px solid var(--site-line);
+  border-top: 3px solid var(--site-brass);
+  background: var(--site-surface);
+}
+
+.aircraft-card p {
+  margin: 0 0 24px;
+}
+
+.aircraft-grid .editorial-empty {
+  grid-column: 1 / -1;
+}
+
+.shop-details {
+  max-width: var(--site-reading);
+  margin-top: 30px;
+}
+
 .flagship-panel {
   display: grid;
   grid-template-columns: minmax(300px, 0.9fr) minmax(0, 1.1fr);
@@ -940,21 +969,24 @@ body.nav-open {
 }
 
 .site-section-paper .development-card h3,
+.site-section-paper .aircraft-card h3,
 .site-section-paper .editorial-empty h3 {
   color: var(--site-paper);
 }
 
 .site-section-paper .development-card p,
+.site-section-paper .aircraft-card p,
 .site-section-paper .editorial-empty p {
   color: var(--site-paper-soft);
 }
 
 .site-section-paper .development-card .eyebrow,
+.site-section-paper .aircraft-card .eyebrow,
 .site-section-paper .editorial-empty .eyebrow {
   color: var(--site-brass-light);
 }
 
-@media (max-width: 920px) {
+@media (max-width: 1120px) {
   .nav-toggle {
     display: block;
   }
@@ -1018,7 +1050,8 @@ body.nav-open {
 
   .game-grid,
   .development-grid,
-  .product-detail-grid {
+  .product-detail-grid,
+  .aircraft-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1140,6 +1173,7 @@ body.nav-open {
   .game-grid,
   .development-grid,
   .product-detail-grid,
+  .aircraft-grid,
   .community-links {
     grid-template-columns: 1fr;
   }

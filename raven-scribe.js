@@ -7,6 +7,7 @@
     "/data/black-oaths-rules-knowledge.md"
   ];
   var DISCORD_URL = "https://discord.gg/AYHMBYaMqc";
+  var STORE_URL = "https://www.ebay.com/str/hexwerksstudios";
   var knowledgeSections = [];
   var knowledgeLoaded = false;
 
@@ -40,7 +41,7 @@
     { title: "Omens & Ravens", words: ["omens", "ravens", "hex", "portable"] },
     { title: "Death Spiral", words: ["death spiral", "wwi", "dogfight", "pilot", "aircraft", "force builder"] },
     { title: "Death Spiral Ecosystem", words: ["ecosystem", "systems", "hexflight", "hexaxis", "hexlink", "death spiral battlefield", "modular battlefield", "accessories", "flight stand"] },
-    { title: "Aircraft Hangar", words: ["aircraft hangar", "aircraft list", "aircraft model", "fokker", "albatros", "sopwith", "se5"] },
+    { title: "Aircraft Hangar", words: ["aircraft hangar", "aircraft list", "aircraft model", "fokker", "albatros", "pfalz", "sopwith", "se5"] },
     { title: "Hoist the Black", words: ["hoist", "ship", "cannon", "boarding", "age-of-sail", "sail"] },
     { title: "Downloads", words: ["download", "pdf", "rulebook", "rules", "components", "print", "assembly guide"] },
     { title: "Forge Files", words: ["forge files", "stl", "download", "payhip", "gumroad", "shopify", "printable files", "personal use", "license"] },
@@ -69,6 +70,8 @@
       '  </div>',
       '  <div class="raven-scribe-log" aria-live="polite"></div>',
       '  <div class="raven-scribe-prompts" aria-label="Suggested questions">',
+      '    <button type="button" data-question="Where can I buy aircraft miniatures?">Shop aircraft</button>',
+      '    <button type="button" data-question="What scale are the aircraft?">Aircraft scale</button>',
       '    <button type="button" data-question="What is Black Oaths?">Black Oaths</button>',
       '    <button type="button" data-question="What is EINVIGI?">EINVIGI</button>',
       '    <button type="button" data-question="What tools are used in the werks?">From the Werks</button>',
@@ -107,7 +110,7 @@
       toggle.setAttribute("aria-expanded", "true");
       loadKnowledge().then(function () {
         if (!log.children.length) {
-          addMessage(log, "scribe", "Ask me about Hexwerks Studios, Black Oaths, EINVIGI, playtesting, From the Werks, downloads, or social links. I only answer from approved notes.");
+          addMessage(log, "scribe", "Ask me about buying physical aircraft, Death Spiral, aircraft scale, the studio's games, playtesting, or downloads. I only answer from approved notes; current product details are on eBay.");
         }
         input.focus();
       });
@@ -249,9 +252,45 @@
 
   function answerQuestion(question) {
     var normalized = question.toLowerCase();
+    var purchaseQuestion = /\b(buy|purchase|shop|store|storefront|ebay|sell|selling|sold|sale|price|prices|shipping|delivery|stock|available|availability|release|released|preorder)\b|\b(can i order|place an order|pre-order|ship to|(do you|can you|will you) ship)\b/.test(normalized);
+    var otherGame = ["Black Oaths", "EINVIGI", "Oaths & Banners", "Omens & Ravens", "Hoist the Black"].find(function (name) {
+      return normalized.indexOf(name.toLowerCase()) !== -1 ||
+        (name === "EINVIGI" && normalized.indexOf("einvígi") !== -1) ||
+        normalized.indexOf(name.toLowerCase().replace("&", "and")) !== -1;
+    });
+    var amountQuestion = /\b(how much|cost|costs)\b/.test(normalized);
+    var rulesAmountQuestion = amountQuestion && topicMap.some(function (topic) {
+      return topic.title.indexOf("Rules:") !== -1 && topic.words.some(function (word) {
+        return word !== "black oaths" && word !== "black oath" && normalized.indexOf(word) !== -1;
+      });
+    });
+    var productAmountQuestion = amountQuestion && (otherGame || /\b(aircraft|planes?|miniatures?|models?|products?|fokker|albatros|pfalz|death spiral|game|hexaxis|hexflight)\b/.test(normalized));
+    purchaseQuestion = purchaseQuestion || (productAmountQuestion && !rulesAmountQuestion);
+    var productTopic = "";
 
-    if (normalized.indexOf("price") !== -1 || normalized.indexOf("release") !== -1 || normalized.indexOf("ship") !== -1 || normalized.indexOf("available") !== -1) {
-      return "I do not have an approved date, price, shipping note, or availability claim. The safest path is to join the Hexwerks Discord for current development talk: " + DISCORD_URL;
+    if (/\bforce[ -]builder\b/.test(normalized)) {
+      productTopic = "Death Spiral Ecosystem";
+    } else if (otherGame) {
+      productTopic = purchaseQuestion ? otherGame : "";
+    } else if (/\b(stl|stls|forge files|print files|printable files|digital files)\b/.test(normalized)) {
+      productTopic = "Forge Files";
+    } else if (/\b(digital|steam|video game|pc game)\b/.test(normalized)) {
+      productTopic = "Digital Products";
+    } else if (/\b(hexaxis|hex axis|flight stands?|plane stands?|aircraft stands?)\b/.test(normalized)) {
+      productTopic = "HexAxis Status";
+    } else if (/\b(scales?|1[\/:]100|1[\/:]144)\b/.test(normalized)) {
+      productTopic = "Aircraft Scale";
+    } else if (purchaseQuestion) {
+      productTopic = /\b(death spiral|game|rules|rulebook)\b/.test(normalized) ? "Death Spiral Product Status" : "Shopping";
+    } else if (/\b(fokker|albatros|pfalz|dr[. -]?(i|1)|d[. -]?(vii|va|iii))\b/.test(normalized)) {
+      productTopic = "Aircraft Hangar";
+    }
+
+    if (productTopic) {
+      var productSection = findSection(productTopic);
+      if (productSection) {
+        return productSection.body;
+      }
     }
 
     var matchedTopic = topicMap.find(function (topic) {
@@ -284,7 +323,21 @@
     label.textContent = speaker === "visitor" ? "You" : "The Raven-Scribe";
 
     var body = document.createElement("p");
-    body.textContent = text;
+    if (speaker === "scribe" && text.indexOf(STORE_URL) !== -1) {
+      text.split(STORE_URL).forEach(function (part, index) {
+        if (index) {
+          var link = document.createElement("a");
+          link.href = STORE_URL;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = "Visit Hexwerks Studios on eBay";
+          body.appendChild(link);
+        }
+        body.appendChild(document.createTextNode(part));
+      });
+    } else {
+      body.textContent = text;
+    }
 
     message.appendChild(label);
     message.appendChild(body);
