@@ -1,10 +1,18 @@
 (function () {
   "use strict";
 
+  var ebayStore = {
+    name: "Hexwerks Studios on eBay",
+    href: "https://www.ebay.com/str/hexwerksstudios",
+    verifiedOn: "2026-10-27"
+  };
+
   window.HexwerksContent = {
+    store: ebayStore,
     navigation: [
       { name: "Home", href: "/" },
       { name: "Death Spiral", href: "/death-spiral/", featured: true },
+      { name: "Shop on eBay", href: ebayStore.href, featured: true },
       { name: "Systems", href: "/systems/" },
       { name: "Games", href: "/games/" },
       { name: "Downloads", href: "/downloads/" },
@@ -41,13 +49,13 @@
       {
         name: "HexFlight",
         slug: "hexflight",
-        summary: "Printable aircraft developed as durable, readable tabletop game pieces.",
-        status: "In development",
+        summary: "Physical 1/144 resin aircraft are listed on eBay. Wider system development continues. Prototype models are pictured here; see eBay for product photos.",
+        status: "1/144 miniatures on eBay",
         href: "/systems/hexflight/",
         category: "Aircraft system",
         prominence: "primary",
         image: "/images/death-spiral/hexflight-aircraft-closeup.webp",
-        imageAlt: "Painted green and red WWI aircraft on HexAxis stands above the Death Spiral battlefield",
+        imageAlt: "Painted green and red HexFlight prototype aircraft on HexAxis prototype stands above the Death Spiral battlefield",
         sortOrder: 1
       },
       {
@@ -133,7 +141,46 @@
         sortOrder: 4
       }
     ],
-    aircraft: [],
+    // Verified physical listings, not a live inventory feed. Product photos and
+    // current sales details belong to eBay; existing site photos show prototypes.
+    aircraft: [
+      {
+        name: "Fokker Dr.I",
+        slug: "fokker-dr-i",
+        scale: "1/144",
+        format: "Physical resin miniature",
+        status: "Listed on eBay",
+        href: ebayStore.href,
+        sortOrder: 1
+      },
+      {
+        name: "Fokker D.VII",
+        slug: "fokker-d-vii",
+        scale: "1/144",
+        format: "Physical resin miniature",
+        status: "Listed on eBay",
+        href: ebayStore.href,
+        sortOrder: 2
+      },
+      {
+        name: "Albatros D.Va",
+        slug: "albatros-d-va",
+        scale: "1/144",
+        format: "Physical resin miniature",
+        status: "Listed on eBay",
+        href: ebayStore.href,
+        sortOrder: 3
+      },
+      {
+        name: "Pfalz D.III",
+        slug: "pfalz-d-iii",
+        scale: "1/144",
+        format: "Physical resin miniature",
+        status: "Listed on eBay",
+        href: ebayStore.href,
+        sortOrder: 4
+      }
+    ],
     downloads: [],
     updates: [
       {
