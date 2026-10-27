@@ -30,7 +30,8 @@
     return content.navigation.map(function (item) {
       var active = isActive(item.href) ? " aria-current=\"page\"" : "";
       var featured = item.featured ? " nav-featured" : "";
-      return "<a class=\"site-nav-link" + featured + "\" href=\"" + item.href + "\"" + active + ">" + escapeHtml(item.name) + "</a>";
+      var external = /^https?:\/\//.test(item.href) ? " target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"" + escapeHtml(item.name + " (opens in a new tab)") + "\"" : "";
+      return "<a class=\"site-nav-link" + featured + "\" href=\"" + escapeHtml(item.href) + "\"" + active + external + ">" + escapeHtml(item.name) + "</a>";
     }).join("");
   }
 
@@ -104,7 +105,7 @@
       "<div class=\"site-footer-grid\">" +
         "<div class=\"site-footer-identity\">" +
           "<a class=\"footer-mark\" href=\"/\">Hexwerks Studios</a>" +
-          "<p>Original tabletop games supported by complete, printable hobby systems.</p>" +
+          "<p>Original tabletop games, physical aircraft miniatures, and printable hobby systems in development.</p>" +
           "<p class=\"footer-legal\">&copy; 2026 Hexwerks Studios. Independent tabletop design and physical prototyping.</p>" +
         "</div>" +
         "<div><h2>Studio</h2><nav class=\"site-footer-links\" aria-label=\"Studio links\">" + navigationLinks() + "</nav></div>" +
@@ -169,7 +170,18 @@
   function renderAircraft(container) {
     if (!content.aircraft.length) {
       container.innerHTML = "<div class=\"editorial-empty\"><span class=\"eyebrow\">Hangar in development</span><h3>Aircraft records are taking shape.</h3><p>The Hangar will collect aircraft profiles, model photographs, and tabletop roles as they are introduced. For current prototype work, follow Death Spiral on Discord.</p><a class=\"button button-secondary\" href=\"https://discord.gg/AYHMBYaMqc\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"Follow Death Spiral aircraft development on Discord\">Follow aircraft development</a></div>";
+      return;
     }
+
+    container.innerHTML = content.aircraft.map(function (aircraft) {
+      return "<article class=\"aircraft-card\">" +
+        "<span class=\"eyebrow\">" + escapeHtml(aircraft.scale) + " scale</span>" +
+        "<h3>" + escapeHtml(aircraft.name) + "</h3>" +
+        "<p>" + escapeHtml(aircraft.format) + "</p>" +
+        "<div class=\"card-foot\"><span class=\"status-badge\">" + escapeHtml(aircraft.status) + "</span>" +
+        "<a class=\"text-link\" href=\"" + escapeHtml(aircraft.href) + "\" target=\"_blank\" rel=\"noopener noreferrer\" aria-label=\"Visit the eBay store for " + escapeHtml(aircraft.name) + " (opens in a new tab)\">Visit eBay store <span aria-hidden=\"true\">&rarr;</span></a></div>" +
+      "</article>";
+    }).join("");
   }
 
   function renderDownloads(container) {

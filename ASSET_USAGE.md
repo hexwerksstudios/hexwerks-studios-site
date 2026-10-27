@@ -18,13 +18,15 @@
 
 The repository does not currently contain verified:
 
-- Verified individual aircraft names and model records
+- Approved product photographs matched to each of the four verified eBay aircraft listings
 - HexAxis engineering diagrams and assembly photography
 - Hexlink connection and assembly documentation
 - Printable accessory photography
 - Assembly diagrams
 
 Where approved photography is unavailable, pages use structured editorial states instead of generated placeholders or stock aviation photography.
+
+The four verified 1/144 aircraft listings use text-only purchase cards. Existing approved Death Spiral artwork and prototype photographs remain in their game and development context; they do not establish a sale item's appearance, scale, finish, or included stands and terrain. Product photos and listing contents are available through the official eBay storefront.
 
 ## Image Standards
 
